@@ -1,4 +1,4 @@
-package protocol
+package nexa
 
 type NodeRole string
 

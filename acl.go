@@ -1,4 +1,4 @@
-package protocol
+package nexa
 
 type Permission string
 
@@ -13,26 +13,26 @@ const (
 type ResourceType string
 
 const (
-	ResourceTypeDoc      ResourceType = "doc"
-	ResourceTypeStream   ResourceType = "stream"
-	ResourceTypeIndex    ResourceType = "index"
-	ResourceTypeCluster  ResourceType = "cluster"
-	ResourceTypeAdmin    ResourceType = "admin"
+	ResourceTypeDoc     ResourceType = "doc"
+	ResourceTypeStream  ResourceType = "stream"
+	ResourceTypeIndex   ResourceType = "index"
+	ResourceTypeCluster ResourceType = "cluster"
+	ResourceTypeAdmin   ResourceType = "admin"
 )
 
 type ACL struct {
-	ID          string            `json:"id"`
-	Subjects    []string         `json:"subjects"`
-	Resources   []Resource       `json:"resources"`
-	Permissions []Permission     `json:"permissions"`
-	Effect      ACLEffect        `json:"effect"`
-	Priority    int              `json:"priority"`
+	ID          string                 `json:"id"`
+	Subjects    []string               `json:"subjects"`
+	Resources   []Resource             `json:"resources"`
+	Permissions []Permission           `json:"permissions"`
+	Effect      ACLEffect              `json:"effect"`
+	Priority    int                    `json:"priority"`
 	Metadata    map[string]interface{} `json:"metadata,omitempty"`
 }
 
 type Resource struct {
 	Type    ResourceType `json:"type"`
-	Pattern string      `json:"pattern"`
+	Pattern string       `json:"pattern"`
 }
 
 type ACLEffect string
@@ -43,27 +43,27 @@ const (
 )
 
 type Role struct {
-	ID          string       `json:"id"`
-	Name        string       `json:"name"`
-	Permissions []Permission `json:"permissions"`
-	Resources   []Resource   `json:"resources"`
+	ID          string                 `json:"id"`
+	Name        string                 `json:"name"`
+	Permissions []Permission           `json:"permissions"`
+	Resources   []Resource             `json:"resources"`
 	Metadata    map[string]interface{} `json:"metadata,omitempty"`
 }
 
 type User struct {
-	ID       string            `json:"id"`
-	Username string            `json:"username"`
-	Roles    []string         `json:"roles"`
+	ID       string                 `json:"id"`
+	Username string                 `json:"username"`
+	Roles    []string               `json:"roles"`
 	Metadata map[string]interface{} `json:"metadata,omitempty"`
 }
 
 type AuthToken struct {
-	UserID    string            `json:"user_id"`
-	Username  string           `json:"username"`
-	Roles     []string        `json:"roles"`
-	IssuedAt  int64           `json:"issued_at"`
-	ExpiresAt int64           `json:"expires_at"`
-	Scopes    []string        `json:"scopes"`
+	UserID    string   `json:"user_id"`
+	Username  string   `json:"username"`
+	Roles     []string `json:"roles"`
+	IssuedAt  int64    `json:"issued_at"`
+	ExpiresAt int64    `json:"expires_at"`
+	Scopes    []string `json:"scopes"`
 }
 
 type AuthRequest struct {

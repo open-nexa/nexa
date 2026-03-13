@@ -1,4 +1,4 @@
-package protocol
+package nexa
 
 type StreamType string
 
@@ -8,6 +8,17 @@ const (
 	StreamAudio   StreamType = "audio"
 	StreamVideo   StreamType = "video"
 	StreamFile    StreamType = "file"
+	StreamLive    StreamType = "live"
+)
+
+type MediaType string
+
+const (
+	MediaTypeImage      MediaType = "image"
+	MediaTypeAudio      MediaType = "audio"
+	MediaTypeVideo      MediaType = "video"
+	MediaTypeLiveStream MediaType = "live_stream"
+	MediaTypeDocument   MediaType = "document"
 )
 
 type MessageType string

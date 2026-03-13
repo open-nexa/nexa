@@ -1,11 +1,15 @@
-package protocol
+package nexa
 
-import "time"
+import (
+	"time"
+)
 
 type Record struct {
 	ID        string                 `json:"id"`
 	Type      string                 `json:"type"`
-	Content   string                 `json:"content"`
+	Content   string                 `json:"content,omitempty"`
+	Media     *MediaContent          `json:"media,omitempty"`
+	MediaList []MediaContent         `json:"media_list,omitempty"`
 	Metadata  map[string]interface{} `json:"metadata,omitempty"`
 	CreatedAt int64                  `json:"created_at"`
 	UpdatedAt int64                  `json:"updated_at"`
@@ -20,6 +24,8 @@ type Message struct {
 	StreamType StreamType             `json:"stream_type,omitempty"`
 	RecordType string                 `json:"record_type,omitempty"`
 	Content    string                 `json:"content,omitempty"`
+	Media      *MediaContent          `json:"media,omitempty"`
+	MediaList  []MediaContent         `json:"media_list,omitempty"`
 	Metadata   map[string]interface{} `json:"metadata,omitempty"`
 	Query      map[string]interface{} `json:"query,omitempty"`
 	Data       interface{}            `json:"data,omitempty"`
